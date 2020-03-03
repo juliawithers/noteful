@@ -1,0 +1,22 @@
+
+.note-nav{
+    text-align: right;
+    margin-right: 15px;
+
+}
+.note-nav > h3{
+    font-size: 25px;
+}
+
+.back-button{
+    margin-top: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 15px;
+    background-color: #05386E;
+    border:none;
+    border-radius: 5px;
+    color: #EDF5E1;
+}
+

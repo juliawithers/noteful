@@ -1,0 +1,38 @@
+
+.app-nav{
+    text-align: right;
+}
+
+.app-nav > article >h2>a{
+    font-size: 15px;
+    text-decoration: none;
+    color: #05386B;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.app-nav>div>.add-folder{
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    text-decoration: none;
+    background-color: #05386E;
+    color: #EDF5E1;
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+}
+a:hover{
+    background-color: #5CDB95;
+}
+
+@media screen and (min-width: 320px){
+    .app-nav > article >h2>a{
+        font-size: 20px;
+    }  
+}
+
+@media screen and (min-width: 650px){
+    .app-nav > article >h2>a{
+        font-size: 25px;
+    }  
+}

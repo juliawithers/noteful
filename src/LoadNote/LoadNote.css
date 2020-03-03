@@ -1,0 +1,23 @@
+.article{
+    display: flex;
+    justify-content: space-between;
+}
+.article>.button-container>.delete-note{
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 15px;
+    border:none;
+    border-radius: 5px;
+    margin-right: 15px;
+    margin-top: 10px;
+    color: #EDF5E1;
+    background-color: #05386E;
+
+    /* color: #EDF5E1;
+    background-color: #379683; */
+}
+
+.content{
+    margin-right: 15px;
+}

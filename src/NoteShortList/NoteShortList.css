@@ -1,0 +1,16 @@
+
+li{
+    list-style-type: none;
+}
+
+.button-container>button{
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    text-decoration: none;
+    background-color: #05386E;
+    color: #EDF5E1;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+}

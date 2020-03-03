@@ -1,0 +1,24 @@
+
+.article{
+    display:flex;
+}
+
+.button-container{
+    justify-content: center;
+}
+.delete-note{
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    text-decoration: none;
+    background-color: #05386E;
+    color: #EDF5E1;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+}
+
+h2>a{
+    text-decoration: none;
+    color: #05386E;
+}

@@ -1,0 +1,42 @@
+*{
+  box-sizing: border-box;
+}
+
+.noteful-App{
+  display: grid;
+  grid-template-areas: "header headerTwo" "nav main";
+  grid-template-columns: 1fr 2.3fr;
+  grid-template-rows: 120px 1fr;
+  min-height: 100vh;
+  background-color: #8ee4af; 
+  /* background-color: #379683; */
+  /* color: #EDF5E1; */
+  color: #05386B;
+}
+
+.app-header{
+  grid-area: headerTwo;
+  padding-top:32px;
+  border-bottom: 3px solid #05386B;
+  padding-left: 10px;
+}
+.app-header>h1 >a{
+  text-decoration: none;
+  color: #05386B;
+}
+
+.app-nav{
+  grid-area: nav;
+  height: 100vh;
+  overflow: auto;
+  border-right: 3px solid #05386B;
+  padding-right: 10px;
+}
+
+.app-main{
+  grid-area: main;
+  height: calc(100vh-100px);
+  overflow: auto;
+  padding-left: 10px;
+  background-color: #5CDB95;  
+}
