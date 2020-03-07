@@ -1,29 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './NoteNav.css'
+import NotefulContext from '../NotefulContext'
+import { findNote, findFolder} from '../helpful-functions'
 
-export default function NoteNav(props) {
-  return (
+export default class NoteNav extends Component{
+  static defaultProps = {
+    history: {
+      goBack: () => {}
+    },
+    match: {
+      params: {}
+    }
+  }
+  static contextType = NotefulContext;
+
+  render(){
+    const {folders,notes} = this.context;
+    const itemId = this.props.match.params.itemId;
+    const note = findNote(notes, itemId);
+    const folder = findFolder(folders, note.folderId);
+    return (
     <div className='note-nav'>
       <button
         type='button'
         role='link'
-        onClick={() => props.history.goBack()}
+        onClick={() => this.props.history.goBack()}
         className='back-button'
       >
         <br />
         Back
       </button>
-      {props.folder && (
+      {folder && (
         <h3 className='folder-name'>
-          {props.folder.name}
+          {folder.name}
         </h3>
       )}
     </div>
   )
-}
-
-NoteNav.defaultProps = {
-  history: {
-    goBack: () => {}
   }
 }
