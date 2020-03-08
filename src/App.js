@@ -6,7 +6,7 @@ import NoteShortList from './NoteShortList/NoteShortList'
 import LoadNote from './LoadNote/LoadNote'
 import './App.css';
 import NotefulContext from './NotefulContext'
-
+import AddFolder from './AddFolder/AddFolder'
 
 export default class App extends Component {
   
@@ -80,8 +80,8 @@ export default class App extends Component {
         path="/LoadNote/:itemId"
         component={NoteNav}
       /> 
-      {/* <Route path="add-note" component={NoteNav}/>
-      <Route path="add-folder" component={NoteNav}/> */}
+      {/* <Route path="add-note" component={AddNote}/> */}
+      {/* <Route path="add-folder" component={AddFolder}/> */}
       </>
     );
   }
@@ -102,6 +102,7 @@ export default class App extends Component {
         path="/LoadNote/:itemId"
         component={LoadNote}
       /> 
+      <Route exact path="/add-folder" component={AddFolder}/>
       </>
     )
     

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import './Folder.css'
 import NotefulContext from '../NotefulContext'
+// import AddFolder from './AddFolder/AddFolder'
 
 export default class Folder extends Component {
     static contextType = NotefulContext;
@@ -16,9 +17,12 @@ export default class Folder extends Component {
                     </Link>
                     </h2>
                 </article> )}
-            <button className="add-folder">
-                Add Folder    
-            </button>                    
+            <Link to={'/add-folder'}>
+                <button className="add-folder">
+                    Add Folder   
+                </button>    
+            </Link>
+                                
         </div>
     )  
     }
