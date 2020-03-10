@@ -45,7 +45,7 @@ export default class LoadNote extends Component{
                         </NotefulError>
                         
                     </div>
-                    <div className="button-container">
+                    <div className="button-container-header">
                         <NotefulError>
                             <Link to={'/'}>
                             <button 

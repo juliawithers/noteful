@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NotefulContext from '../NotefulContext';
 // import PropTypes from 'prop-types'
 import ValidateAddFolder from './ValidateAddFolder';
-
+import './AddFolder.css'
 
 export default class AddFolder extends Component {
     static contextType = NotefulContext;
@@ -72,38 +72,45 @@ export default class AddFolder extends Component {
     render(){
         const folderError = this.validateFolderName();
         return(
-            <div>
+            <div className='form-div'>
                 <div className="add-folder-error">
                     {this.state.folderName.error}
                 </div>
                 <form 
+                    className='folder-form'
                     onSubmit={e => {
                         e.preventDefault();
                         this.handleSubmit(this.state.folderName.value)}}
                    >
                     <label htmlFor='folderName'>
-                        Folder Name
+                        New Folder Name:
                         {' '}
                     </label>
-                    <input 
-                        type='text'
-                        name='folderName'
-                        id='folderName'
-                        placeholder='Example Note Title'
-                        onChange={e=>this.updateFolderInput(e.target.value)}
-                        required
-                    />
+                    <div className="input-container">
+                        <input 
+                            type='text'
+                            name='folderName'
+                            id='folderName'
+                            placeholder='Example Note Title'
+                            onChange={e=>this.updateFolderInput(e.target.value)}
+                            required
+                        />    
+                    </div>
+                    
                     <ValidateAddFolder message={folderError}/>
-                    <button onClick={this.handleCancelFolder}>
-                        Cancel
-                    </button>
-                    <button type='submit'
-                        className='submit-add-folder'
-                        disabled={
-                            this.validateFolderName()
-                        }>
-                        Submit
-                    </button>
+                    <div className="button-container">
+                        <button onClick={this.handleCancelFolder}>
+                            Cancel
+                        </button>
+                        <button type='submit'
+                            className='submit-add-folder'
+                            disabled={
+                                this.validateFolderName()
+                            }>
+                            Submit
+                        </button>    
+                    </div>
+                    
                 </form>    
             </div> 
         )

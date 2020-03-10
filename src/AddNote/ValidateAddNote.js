@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 export default function ValidateAddNote(props) {
   if(props.message) {
@@ -7,4 +8,8 @@ export default function ValidateAddNote(props) {
     );
   }
   return <></>
+}
+
+ValidateAddNote.propTypes={
+    message: PropTypes.string.isRequired
 }

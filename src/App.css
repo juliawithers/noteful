@@ -9,8 +9,6 @@
   grid-template-rows: 120px 1fr;
   min-height: 100vh;
   background-color: #8ee4af; 
-  /* background-color: #379683; */
-  /* color: #EDF5E1; */
   color: #05386B;
 }
 
@@ -29,7 +27,6 @@
   grid-area: nav;
   height: 100vh;
   overflow: auto;
-  border-right: 3px solid #05386B;
   padding-right: 10px;
 }
 
@@ -39,4 +36,49 @@
   overflow: auto;
   padding-left: 10px;
   background-color: #5CDB95;  
+  border-left: 3px solid #05386B;
+}
+
+.app-main>section>ul{
+  padding: 0px;
+  padding-left: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.app-main>section>ul>li{
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  width: 400px;
+}
+
+h2{
+  font-size: 110%;
+}
+
+
+
+@media screen and (min-width: 320px){
+    h2{
+        font-size: 150%;
+    }  
+}
+
+@media screen and (min-width: 650px){
+  .app-main>section>ul{
+    padding-left: 30px;
+    margin-left: 30;
+    margin-right: 30;
+  }
+
+  .app-main>section>ul>li{
+    margin-right: 0;
+    margin-left: 0;
+    width: 400px;
+  }
+  
 }

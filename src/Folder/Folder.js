@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 import './Folder.css'
 import NotefulContext from '../NotefulContext'
 
+
 export default class Folder extends Component {
     static contextType = NotefulContext;
     render(){
@@ -10,7 +11,7 @@ export default class Folder extends Component {
         <div>
             {this.context.folders.map(item => 
                 <article key={item.id} className="unhighlighted">
-                    <h2>
+                    <h2 className="title">
                     <NavLink 
                         className='foldernav-link'
                         to={`/folder/${item.id}`}>
@@ -18,16 +19,18 @@ export default class Folder extends Component {
                     </NavLink>
                     </h2>
                 </article> )}
-            <Link to={'/add-folder'}>
-                <button className="add-folder">
-                    Add Folder   
-                </button>    
-            </Link>
+            <div className="button-container-nav">
+                <Link to={'/add-folder'}>
+                    <button className="add-folder">
+                        Add Folder   
+                    </button>    
+                </Link>
+            </div>
+            
                                 
         </div>
     )  
     }
-   
 }
 
 

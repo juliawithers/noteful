@@ -30,16 +30,16 @@ export default class NoteShortList extends Component {
                     </li>
                     )}
                 </ul>
-                <div className="button-container">
+                <div className="button-container-notes">
                     <NotefulError>
                         <Link to={'/add-note'}>
-                            <button type="submit">
+                            <button 
+                                className="add-note"
+                                type="submit">
                                 Add Note
                             </button>   
                         </Link>  
                     </NotefulError>
-                    
-                    
                 </div>
             </section>
         )     

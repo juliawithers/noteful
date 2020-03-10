@@ -20,16 +20,18 @@ export default class NoteNav extends Component{
     const note = findNote(notes, itemId);
     const folder = findFolder(folders, note.folderId);
     return (
-    <div className='note-nav'>
-      <button
-        type='button'
-        role='link'
-        onClick={() => this.props.history.goBack()}
-        className='back-button'
-      >
-        <br />
-        Back
-      </button>
+    <div className="nav-container-note">
+      <div className="button-container-back">
+        <button
+          type='button'
+          role='link'
+          onClick={() => this.props.history.goBack()}
+          className='back-button'
+        >
+          <br />
+          Back
+        </button>  
+      </div>
       {folder && (
         <h3 className='folder-name'>
           {folder.name}

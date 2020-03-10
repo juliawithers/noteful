@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './NoteHeader.css'
 import NotefulContext from '../NotefulContext'
 import NotefulError from '../NotefulError'
+import PropTypes from 'prop-types'
 
 export default class NoteHeader extends Component {
     static contextType = NotefulContext;
@@ -32,7 +33,7 @@ export default class NoteHeader extends Component {
     }
     render(){
         return (
-            <div>
+            <div className="container-div">
                 <h2>
                     <NotefulError>
                         <Link to={`/LoadNote/${this.props.id}`}>
@@ -41,17 +42,23 @@ export default class NoteHeader extends Component {
                     </NotefulError>
                 </h2>
                 <p>Date modified: {new Date(this.props.modified).toDateString()}</p> 
-                <div className="button-container">
+                <div className="button-container-header">
                     <NotefulError>
                         <button 
                             type="button" className="delete-note"
                             onClick={this.deleteNoteRequest}
                             >
-                            Delete Notes
+                            Delete Note
                         </button>    
                     </NotefulError> 
                 </div>
             </div>     
         )  
     }
+}
+
+NoteHeader.propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    modified: PropTypes.string.isRequired
 }

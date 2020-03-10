@@ -1,0 +1,33 @@
+.folder-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label{
+    text-align: center;
+    margin: 10px;
+}
+
+.input-container{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.input-container>input{
+    width: 200px;
+    padding: 5px;
+    text-align: center;
+}
+
+
+.button-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.error{
+    text-align:center;
+    margin: 10px;
+}

@@ -3,7 +3,6 @@ import NotefulContext from '../NotefulContext';
 // import PropTypes from 'prop-types'
 import ValidateAddNote from './ValidateAddNote';
 import CreateOptions from './CreateOptions'
-// import Moment from 'react-moment'
 import NotefulError from '../NotefulError'
 
 export default class AddFolder extends Component {
@@ -189,20 +188,26 @@ export default class AddFolder extends Component {
                         </select>    
                     </NotefulError>
                     <ValidateAddNote message={folderError}/>
-                    <button onClick={this.handleCancelNote}>
-                        Cancel
-                    </button>
-                    <button type='submit'
-                        className='submit-add-folder'
-                        disabled={
-                            this.validateNoteName() ||
-                            this.validateContent() ||
-                            this.validateFolder()
-                        }>
-                        Submit
-                    </button>
+                    <div className="button-container">
+                        <button onClick={this.handleCancelNote}>
+                            Cancel
+                        </button>
+                        <button type='submit'
+                            className='submit-add-folder'
+                            disabled={
+                                this.validateNoteName() ||
+                                this.validateContent() ||
+                                this.validateFolder()
+                            }>
+                            Submit
+                        </button>
+                    </div>
                 </form>    
             </div> 
         )
     }
 }
+
+// AddNote.propTypes = {
+
+// }

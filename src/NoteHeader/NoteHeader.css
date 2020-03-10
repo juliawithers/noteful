@@ -3,22 +3,45 @@
     display:flex;
 }
 
-.button-container{
+.button-container-header{
     justify-content: center;
 }
-.delete-note{
+.button-container-header>.delete-note{
     border: none;
     border-radius: 5px;
     padding: 2px;
     text-decoration: none;
     background-color: #05386E;
     color: #EDF5E1;
-    width: 150px;
+    width: 100px;
     height: 50px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 h2>a{
     text-decoration: none;
     color: #05386E;
+}
+
+.container-div{
+    width: 200px;
+}
+
+@media screen and (min-width: 320px){
+    .container-div{
+        width: 300px;
+    }  
+    .button-container-header>.delete-note{
+        width: 150px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 650px){
+    .app-nav > article >h2>a{
+        font-size: 25px;
+    }  
+    .button-container-header>.delete-note{
+        font-size: 20px;
+    }
 }

@@ -8,15 +8,22 @@
     font-size: 25px;
 }
 
-.back-button{
+.nav-container-note{
     margin-top: 10px;
-    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.back-button{
+    width: 80px;
     height: 50px;
-    font-size: 20px;
-    line-height: 15px;
+    font-size: 15px;
     background-color: #05386E;
     border:none;
     border-radius: 5px;
+    padding: 2px; 
     color: #EDF5E1;
 }
+
+
 
