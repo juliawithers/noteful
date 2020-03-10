@@ -3,13 +3,13 @@ import './LoadNote.css'
 import NotefulContext from '../NotefulContext'
 import { findNote} from '../helpful-functions'
 import { Link } from 'react-router-dom'
+import NotefulError from '../NotefulError'
 
 export default class LoadNote extends Component{
     static contextType = NotefulContext;
 
     deleteNoteRequest =e =>{
         e.preventDefault();
-        console.log('deleteNoteRequest ran')
         const noteId = this.props.match.params.itemId
         fetch(`http://localhost:9090/notes/${noteId}`, {
           method: 'DELETE',
@@ -40,17 +40,22 @@ export default class LoadNote extends Component{
                 <article id={note.id} className="article">
                     <div>
                         <h2>{note.name}</h2>
-                        <p>Date modified: {new Date(note.modified).toDateString()}</p>
+                        <NotefulError>
+                            <p>Date modified: {new Date(note.modified).toDateString()}</p>    
+                        </NotefulError>
+                        
                     </div>
                     <div className="button-container">
-                        <Link to={'/'}>
-                        <button 
-                            type="button" className="delete-note"
-                            onClick={this.deleteNoteRequest}
-                            >
-                            Delete Notes
-                        </button>
-                        </Link>
+                        <NotefulError>
+                            <Link to={'/'}>
+                            <button 
+                                type="button" className="delete-note"
+                                onClick={this.deleteNoteRequest}
+                                >
+                                Delete Notes
+                            </button>
+                            </Link>    
+                        </NotefulError>     
                     </div>
                 </article>
                 <article className="content">

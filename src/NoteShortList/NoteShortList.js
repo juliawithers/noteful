@@ -1,8 +1,10 @@
 import React,{ Component } from 'react'
+import { Link } from 'react-router-dom'
 import './NoteShortList.css'
 import NoteHeader from '../NoteHeader/NoteHeader'
 import NotefulContext from '../NotefulContext'
 import { generateFolderNotes} from '../helpful-functions'
+import NotefulError from '../NotefulError'
 
 export default class NoteShortList extends Component {
     static contextType = NotefulContext;
@@ -11,6 +13,7 @@ export default class NoteShortList extends Component {
             params: {}
         }
     }
+
     render(){
         const folderId = this.props.match.params.folderId;
         const notesList = generateFolderNotes(this.context.notes,folderId,this.props);
@@ -23,15 +26,20 @@ export default class NoteShortList extends Component {
                             id={item.id}
                             name={item.name}
                             modified={item.modified}
-                            // onDeleteNote={this.deleteNote}
                         />
                     </li>
                     )}
                 </ul>
                 <div className="button-container">
-                    <button type="submit">
-                        Add Note
-                    </button>
+                    <NotefulError>
+                        <Link to={'/add-note'}>
+                            <button type="submit">
+                                Add Note
+                            </button>   
+                        </Link>  
+                    </NotefulError>
+                    
+                    
                 </div>
             </section>
         )     

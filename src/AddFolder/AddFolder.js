@@ -1,36 +1,47 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import NotefulContext from '../NotefulContext';
+// import PropTypes from 'prop-types'
+import ValidateAddFolder from './ValidateAddFolder';
 
-export default class AddFolder extends Component{
 
-    handleSubmit = e => {
-        e.preventDefault()
-        console.log(e.target.value)
-        const folderName = e.target.value;
-        console.log(folderName)
+export default class AddFolder extends Component {
+    static contextType = NotefulContext;
+    constructor(props){
+        super(props);
+        this.state = {
+            folderName: {
+                value: '',
+                error: '',
+                touched: false
+            }
+        };
+    }
 
+    handleSubmit = folderName => {
         fetch(`http://localhost:9090/folders`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json'
           },
           body: JSON.stringify({
-            'id':'placeholder',
+            'id': `${folderName}`,
             'name': `${folderName}`})
         })
         .then(res => {
             if (!res.ok) {
                 throw `Could not add folder ${folderName}`
             }
-            console.log(res.json())
-            return res.json()
+            return res.json();
         })
-        .then( resJson => {
-            console.log(resJson)
-            // this.props.history.push(`/folder/${folderId}`)
-            // this.context.deleteNote(noteId)
+        .then( respJson => {
+            this.context.folders.push(respJson)
+            this.props.history.push(`/folder/${folderName}`)
         })
         .catch(error => {
-            console.error(error)
+            this.setState({
+                folderName:{
+                    error: error}
+            })
         })
     }
 
@@ -38,15 +49,37 @@ export default class AddFolder extends Component{
         this.props.history.push('/')
     }
 
+    updateFolderInput(name) {
+        this.setState({
+            folderName: {
+                value: name,
+                touched: true}
+        })
+    }
+
+    validateFolderName(){
+        const folders = this.context.folders;
+        const folderName = this.state.folderName.value;
+        if(folderName.length === 0){
+            return 'You must enter a folder name.'
+        };
+        for(let i=0;i<folders.length;i++){
+            if(folders[i].name.toLowerCase() === folderName.toLowerCase() ){
+               return 'You must choose another folder name as this name already exists.'
+            }
+        };
+    }
     render(){
-        console.log('AddFolder was run')
+        const folderError = this.validateFolderName();
         return(
             <div>
                 <div className="add-folder-error">
-
+                    {this.state.folderName.error}
                 </div>
                 <form 
-                    onSubmit={this.handleSubmit}
+                    onSubmit={e => {
+                        e.preventDefault();
+                        this.handleSubmit(this.state.folderName.value)}}
                    >
                     <label htmlFor='folderName'>
                         Folder Name
@@ -57,17 +90,22 @@ export default class AddFolder extends Component{
                         name='folderName'
                         id='folderName'
                         placeholder='Example Note Title'
+                        onChange={e=>this.updateFolderInput(e.target.value)}
                         required
                     />
+                    <ValidateAddFolder message={folderError}/>
                     <button onClick={this.handleCancelFolder}>
                         Cancel
                     </button>
-                    <button type='submit'>
+                    <button type='submit'
+                        className='submit-add-folder'
+                        disabled={
+                            this.validateFolderName()
+                        }>
                         Submit
                     </button>
                 </form>    
-            </div>
-            
+            </div> 
         )
     }
 }

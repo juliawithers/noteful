@@ -7,9 +7,9 @@ import LoadNote from './LoadNote/LoadNote'
 import './App.css';
 import NotefulContext from './NotefulContext'
 import AddFolder from './AddFolder/AddFolder'
+import AddNote from './AddNote/AddNote'
 
 export default class App extends Component {
-  
   state = {
     folders: [],
     notes: [],
@@ -17,24 +17,25 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-      // Need to fetch Folders and Notes
+    // Fetch Folders
     fetch('http://localhost:9090/folders', {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
       }
     })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(res.status)
-        }
-        return res.json()
-      })
-      .then(folders => {this.setState({
-        folders
-      })})
-      .catch(error => this.setState({ error }))
-      
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.status)
+      }
+      return res.json()
+    })
+    .then(folders => {this.setState({
+      folders
+    })})
+    .catch(error => this.setState({ error }))
+
+    // Fetch Notes
     fetch('http://localhost:9090/notes', {
       method: 'GET',
       headers: {
@@ -53,17 +54,12 @@ export default class App extends Component {
       .catch(error => this.setState({ error }))
   }
 
-  
- 
   deleteNote =(noteId) =>{
     const newNotes = this.state.notes.filter(note => note.id !== noteId)
     this.setState({
       notes: newNotes
     })
-    console.log(this.state.notes)
   }
-  // Need to add function for deleting the noteId
-
 
   CreateNavRoutes(){
     return(
@@ -80,8 +76,6 @@ export default class App extends Component {
         path="/LoadNote/:itemId"
         component={NoteNav}
       /> 
-      {/* <Route path="add-note" component={AddNote}/> */}
-      {/* <Route path="add-folder" component={AddFolder}/> */}
       </>
     );
   }
@@ -97,15 +91,14 @@ export default class App extends Component {
               component = {NoteShortList}
             />
       ))}
-
       <Route 
         path="/LoadNote/:itemId"
         component={LoadNote}
       /> 
       <Route exact path="/add-folder" component={AddFolder}/>
+      <Route path="/add-note" component={AddNote}/>
       </>
     )
-    
   }
   
   render(){
