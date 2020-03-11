@@ -6,18 +6,35 @@ import NotefulContext from '../NotefulContext'
 
 export default class Folder extends Component {
     static contextType = NotefulContext;
+    // constructor(props){
+    //     super(props);
+    //     this.handleActive = this.handleActive.bind(this);
+    //     this.state={
+    //         active: false
+    //     }  
+    // }
+    
+    
+    // handleActive(){
+    //     const currentState = this.state.active;
+    //     this.setState({
+    //         active: !currentState
+    //     })
+    // };
     render(){
        return(
-        <div>
+        <div className="folder-nav">
             {this.context.folders.map(item => 
                 <article key={item.id} className="unhighlighted">
-                    <h2 className="title">
                     <NavLink 
                         className='foldernav-link'
+                        onClick={this.handleActive}
+                        value={`/folder/${item.id}`}
                         to={`/folder/${item.id}`}>
-                        {item.name}
+                            <h2 className="title">
+                              {item.name}   
+                            </h2>
                     </NavLink>
-                    </h2>
                 </article> )}
             <div className="button-container-nav">
                 <Link to={'/add-folder'}>

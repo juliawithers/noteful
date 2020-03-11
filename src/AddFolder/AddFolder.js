@@ -13,11 +13,23 @@ export default class AddFolder extends Component {
                 value: '',
                 error: '',
                 touched: false
-            }
+            },
+            folderErr: ''
         };
     }
 
     handleSubmit = folderName => {
+        const folderError = this.validateFolderName();
+        console.log(folderError)
+        
+        if (folderError !==''){
+            this.setState({
+                folderErr: folderError
+            })
+            console.log(this.state)
+            return
+        }
+
         fetch(`http://localhost:9090/folders`, {
           method: 'POST',
           headers: {
@@ -61,21 +73,22 @@ export default class AddFolder extends Component {
         const folders = this.context.folders;
         const folderName = this.state.folderName.value;
         if(folderName.length === 0){
-            return 'You must enter a folder name.'
+            return '**You must enter a folder name.'
         };
         for(let i=0;i<folders.length;i++){
             if(folders[i].name.toLowerCase() === folderName.toLowerCase() ){
-               return 'You must choose another folder name as this name already exists.'
+               return '**You must choose another folder name as this name already exists.'
             }
         };
     }
     render(){
-        const folderError = this.validateFolderName();
+        
         return(
             <div className='form-div'>
                 <div className="add-folder-error">
                     {this.state.folderName.error}
                 </div>
+                <h2>Add a Folder!</h2>
                 <form 
                     className='folder-form'
                     onSubmit={e => {
@@ -91,22 +104,18 @@ export default class AddFolder extends Component {
                             type='text'
                             name='folderName'
                             id='folderName'
-                            placeholder='Example Note Title'
+                            placeholder='Example Folder Title'
                             onChange={e=>this.updateFolderInput(e.target.value)}
-                            required
                         />    
                     </div>
-                    
-                    <ValidateAddFolder message={folderError}/>
-                    <div className="button-container">
+                    <ValidateAddFolder message={this.state.folderErr}/>
+                    <div className="button-container-add-folder">
                         <button onClick={this.handleCancelFolder}>
                             Cancel
                         </button>
                         <button type='submit'
                             className='submit-add-folder'
-                            disabled={
-                                this.validateFolderName()
-                            }>
+                            >
                             Submit
                         </button>    
                     </div>
@@ -116,3 +125,7 @@ export default class AddFolder extends Component {
         )
     }
 }
+
+// AddFolder.propTypes = {
+// check for history and push
+// }

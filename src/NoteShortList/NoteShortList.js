@@ -4,7 +4,6 @@ import './NoteShortList.css'
 import NoteHeader from '../NoteHeader/NoteHeader'
 import NotefulContext from '../NotefulContext'
 import { generateFolderNotes} from '../helpful-functions'
-import NotefulError from '../NotefulError'
 
 export default class NoteShortList extends Component {
     static contextType = NotefulContext;
@@ -31,15 +30,13 @@ export default class NoteShortList extends Component {
                     )}
                 </ul>
                 <div className="button-container-notes">
-                    <NotefulError>
-                        <Link to={'/add-note'}>
-                            <button 
-                                className="add-note"
-                                type="submit">
-                                Add Note
-                            </button>   
-                        </Link>  
-                    </NotefulError>
+                    <Link to={'/add-note'}>
+                        <button 
+                            className="add-note"
+                            type="submit">
+                            Add Note
+                        </button>   
+                    </Link>  
                 </div>
             </section>
         )     

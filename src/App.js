@@ -8,7 +8,7 @@ import './App.css';
 import NotefulContext from './NotefulContext'
 import AddFolder from './AddFolder/AddFolder'
 import AddNote from './AddNote/AddNote'
-
+import NotefulError from './NotefulError'
 export default class App extends Component {
   state = {
     folders: [],
@@ -109,21 +109,24 @@ export default class App extends Component {
     }
     console.log(contextValue)
     return (
-      <NotefulContext.Provider value={contextValue}>
-        <div className="noteful-App">
-          <nav className="app-nav">{this.CreateNavRoutes()}</nav> 
-          <header className="app-header">
-            <h1>
-              <Link to='/'>
-                Noteful
-              </Link>
-            </h1>
-          </header>  
-          <main className="app-main">
-            {this.createNotesRoutes()}
-          </main>
-        </div>  
-      </NotefulContext.Provider>
+        <NotefulError>
+          <NotefulContext.Provider value={contextValue}>
+            <div className="noteful-App">
+              <nav className="app-nav">{this.CreateNavRoutes()}</nav> 
+              <header className="app-header">
+                <h1>
+                  <Link to='/'>
+                    Noteful
+                  </Link>
+                </h1>
+              </header>  
+              <main className="app-main">
+                {this.createNotesRoutes()}
+              </main>
+            </div>  
+          </NotefulContext.Provider>
+        </NotefulError>
+        
     );
   }
 }

@@ -1,0 +1,66 @@
+.add-note-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.add-note-title{
+    text-align: center;
+}
+label,input,textarea,select{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+textarea{
+    width: 300px;
+    height: 150px;
+}
+input,textarea,select{
+    border-radius: 3px;
+    border-style: none;
+}
+input,select{
+    padding: 5px;
+}
+
+.button-container-add-note{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button-container-add-note>button{
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    text-decoration: none;
+    background-color: #05386E;
+    color: #EDF5E1;
+    width: 80px;
+    height: 50px;
+    font-size: 15px;  
+}
+
+
+.error{
+    text-align:center;
+    margin: 10px;
+}
+
+
+@media screen and (min-width: 320px){
+    .button-container-add-note>button{
+        width: 100px;
+        font-size: 20px;
+    } 
+}
+
+@media screen and (min-width: 650px){
+    .button-container-add-note>button{
+        width: 150px;
+        font-size: 20px;
+    } 
+}

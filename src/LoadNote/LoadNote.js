@@ -3,7 +3,6 @@ import './LoadNote.css'
 import NotefulContext from '../NotefulContext'
 import { findNote} from '../helpful-functions'
 import { Link } from 'react-router-dom'
-import NotefulError from '../NotefulError'
 
 export default class LoadNote extends Component{
     static contextType = NotefulContext;
@@ -40,22 +39,17 @@ export default class LoadNote extends Component{
                 <article id={note.id} className="article">
                     <div>
                         <h2>{note.name}</h2>
-                        <NotefulError>
                             <p>Date modified: {new Date(note.modified).toDateString()}</p>    
-                        </NotefulError>
-                        
                     </div>
-                    <div className="button-container-header">
-                        <NotefulError>
-                            <Link to={'/'}>
-                            <button 
-                                type="button" className="delete-note"
-                                onClick={this.deleteNoteRequest}
-                                >
-                                Delete Notes
-                            </button>
-                            </Link>    
-                        </NotefulError>     
+                    <div className="button-container-loaded">
+                        <Link to={'/'}>
+                        <button 
+                            type="button" className="delete-note"
+                            onClick={this.deleteNoteRequest}
+                            >
+                            Delete Notes
+                        </button>
+                        </Link>      
                     </div>
                 </article>
                 <article className="content">
@@ -66,3 +60,7 @@ export default class LoadNote extends Component{
         )
     }
 }
+
+// AddNote.propTypes = {
+// check for match params and history
+// }

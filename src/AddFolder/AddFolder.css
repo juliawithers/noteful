@@ -1,3 +1,7 @@
+.form-div>h2{
+    text-align: center;
+}
+
 .folder-form{
     display: flex;
     flex-direction: column;
@@ -19,15 +23,46 @@ label{
     width: 200px;
     padding: 5px;
     text-align: center;
+    background-color: white;
+    border-radius: 3px;
+    border-style: none;
+    font-size: 15px;
 }
 
 
-.button-container{
+.button-container-add-folder{
     display: flex;
     justify-content: space-evenly;
 }
+.button-container-add-folder>button{
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    text-decoration: none;
+    background-color: #05386E;
+    color: #EDF5E1;
+    width: 80px;
+    height: 50px;
+    font-size: 15px;  
+}
+
 
 .error{
     text-align:center;
     margin: 10px;
+}
+
+
+@media screen and (min-width: 320px){
+    .button-container-add-folder>button{
+        width: 100px;
+        font-size: 20px;
+    } 
+}
+
+@media screen and (min-width: 650px){
+    .button-container-add-folder>button{
+        width: 150px;
+        font-size: 20px;
+    } 
 }

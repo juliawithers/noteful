@@ -2,13 +2,25 @@
   box-sizing: border-box;
 }
 
+@import url("https://fonts.googleapis.com/css?family=Poppins|Raleway&display=swap");
+
+body{
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1,h2,h3{
+  font-family: 'Poppins', sans-serif;
+}
+
 .noteful-App{
   display: grid;
   grid-template-areas: "header headerTwo" "nav main";
   grid-template-columns: 1fr 2.3fr;
   grid-template-rows: 120px 1fr;
   min-height: 100vh;
-  background-color: #8ee4af; 
+  /* background-color: #8ee4af;  */
+  background-color: #5CDB95;  
   color: #05386B;
 }
 
@@ -17,6 +29,7 @@
   padding-top:32px;
   border-bottom: 3px solid #05386B;
   padding-left: 10px;
+  background-color: #379683;
 }
 .app-header>h1 >a{
   text-decoration: none;
@@ -27,7 +40,6 @@
   grid-area: nav;
   height: 100vh;
   overflow: auto;
-  padding-right: 10px;
 }
 
 .app-main{
@@ -35,7 +47,9 @@
   height: calc(100vh-100px);
   overflow: auto;
   padding-left: 10px;
-  background-color: #5CDB95;  
+  /* background-color: #5CDB95;   */
+  background-color: #8ee4af; 
+
   border-left: 3px solid #05386B;
 }
 
@@ -46,7 +60,6 @@
   margin-right: auto;
   display:flex;
   flex-direction: column;
-  justify-items: center;
 }
 
 .app-main>section>ul>li{
@@ -71,14 +84,11 @@ h2{
 @media screen and (min-width: 650px){
   .app-main>section>ul{
     padding-left: 30px;
-    margin-left: 30;
-    margin-right: 30;
   }
 
   .app-main>section>ul>li{
     margin-right: 0;
     margin-left: 0;
-    width: 400px;
+    width: 500px;
   }
-  
 }

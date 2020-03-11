@@ -14,9 +14,11 @@ li{
     font-size: 15px;
 }
 
+
 .button-container-notes{
-    text-align: center;
-    /* width: 100px; */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 @media screen and (min-width: 320px){
@@ -31,8 +33,4 @@ li{
         width: 150px;
         font-size: 20px;
     } 
-    .app-main>section>ul{
-        margin-left: 30;
-        margin-right: 30;
-      }
 }
