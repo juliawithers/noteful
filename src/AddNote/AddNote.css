@@ -15,6 +15,13 @@ label,input,textarea,select{
 textarea{
     width: 300px;
     height: 150px;
+    font-family: 'Raleway', sans-serif;
+    padding:5px;
+}
+.add-note-label{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 input,textarea,select{
     border-radius: 3px;

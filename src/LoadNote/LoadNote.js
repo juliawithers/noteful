@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import './LoadNote.css'
+import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import NotefulContext from '../NotefulContext'
 import { findNote} from '../helpful-functions'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 export default class LoadNote extends Component{
     static contextType = NotefulContext;
+    static defaultProps = {
+        history: {
+          goBack: () => {}
+        },
+        match: {
+          params: {}
+        }
+      }
 
     deleteNoteRequest =e =>{
         e.preventDefault();
@@ -47,7 +58,7 @@ export default class LoadNote extends Component{
                             type="button" className="delete-note"
                             onClick={this.deleteNoteRequest}
                             >
-                            Delete Notes
+                            <FontAwesomeIcon icon={faTrashAlt}/>
                         </button>
                         </Link>      
                     </div>
@@ -61,6 +72,14 @@ export default class LoadNote extends Component{
     }
 }
 
-// AddNote.propTypes = {
-// check for match params and history
-// }
+LoadNote.propTypes = {
+    history: PropTypes.shape({
+        goBack: PropTypes.func.isRequired,
+        push: PropTypes.func.isRequired
+    }).isRequired,
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            itemId: PropTypes.string.isRequired
+        })
+    }).isRequired
+}

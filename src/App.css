@@ -12,6 +12,9 @@ body{
 h1,h2,h3{
   font-family: 'Poppins', sans-serif;
 }
+button:hover{
+  cursor: pointer;
+}
 
 .noteful-App{
   display: grid;
@@ -19,7 +22,6 @@ h1,h2,h3{
   grid-template-columns: 1fr 2.3fr;
   grid-template-rows: 120px 1fr;
   min-height: 100vh;
-  /* background-color: #8ee4af;  */
   background-color: #5CDB95;  
   color: #05386B;
 }
@@ -47,9 +49,7 @@ h1,h2,h3{
   height: calc(100vh-100px);
   overflow: auto;
   padding-left: 10px;
-  /* background-color: #5CDB95;   */
   background-color: #8ee4af; 
-
   border-left: 3px solid #05386B;
 }
 

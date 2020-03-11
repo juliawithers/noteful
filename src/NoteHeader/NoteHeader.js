@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import './NoteHeader.css'
 import NotefulContext from '../NotefulContext'
 import PropTypes from 'prop-types'
+
+
 
 export default class NoteHeader extends Component {
     static contextType = NotefulContext;
@@ -44,7 +48,7 @@ export default class NoteHeader extends Component {
                         type="button" className="delete-note"
                         onClick={this.deleteNoteRequest}
                         >
-                        Delete Note
+                        <FontAwesomeIcon icon={faTrashAlt}/>
                     </button>    
                 </div>
             </div>     

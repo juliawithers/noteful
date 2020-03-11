@@ -2,16 +2,15 @@
 .note-nav{
     text-align: right;
     margin-right: 15px;
-
 }
 .note-nav > h3{
     font-size: 25px;
 }
-
 .nav-container-note{
     margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+}
+.folder-name{
+    margin-right: 15px;
 }
 
 .back-button{
@@ -19,10 +18,22 @@
     height: 50px;
     font-size: 15px;
     background-color: #05386E;
-    border:none;
+    border: none;
     border-radius: 5px;
     padding: 2px; 
     color: #EDF5E1;
+    margin-right: 15px;
+}
+
+@media screen and (min-width: 320px){
+    .back-button{
+        font-size: 20px;
+    }
+}
+@media screen and (min-width:650px){
+    .folder-name{
+        font-size: 25px;
+    }  
 }
 
 

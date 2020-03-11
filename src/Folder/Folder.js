@@ -2,25 +2,11 @@ import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom'
 import './Folder.css'
 import NotefulContext from '../NotefulContext'
-
+import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 export default class Folder extends Component {
     static contextType = NotefulContext;
-    // constructor(props){
-    //     super(props);
-    //     this.handleActive = this.handleActive.bind(this);
-    //     this.state={
-    //         active: false
-    //     }  
-    // }
-    
-    
-    // handleActive(){
-    //     const currentState = this.state.active;
-    //     this.setState({
-    //         active: !currentState
-    //     })
-    // };
     render(){
        return(
         <div className="folder-nav">
@@ -39,7 +25,7 @@ export default class Folder extends Component {
             <div className="button-container-nav">
                 <Link to={'/add-folder'}>
                     <button className="add-folder">
-                        Add Folder   
+                        <FontAwesomeIcon icon={faPlus}/> Folder   
                     </button>    
                 </Link>
             </div>

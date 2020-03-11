@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './NoteNav.css'
 import NotefulContext from '../NotefulContext'
 import { findNote, findFolder} from '../helpful-functions'
+import PropTypes from 'prop-types'
 
 export default class NoteNav extends Component{
   static defaultProps = {
@@ -28,7 +29,6 @@ export default class NoteNav extends Component{
           onClick={() => this.props.history.goBack()}
           className='back-button'
         >
-          <br />
           Back
         </button>  
       </div>
@@ -40,4 +40,15 @@ export default class NoteNav extends Component{
     </div>
   )
   }
+}
+
+NoteNav.propType = {
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      itemId: PropTypes.string.isRequired
+    })
+  }).isRequired
 }

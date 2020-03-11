@@ -8,9 +8,10 @@
     width: 100%;
 }
 
-label{
+.add-folder-label{
     text-align: center;
-    margin: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .input-container{

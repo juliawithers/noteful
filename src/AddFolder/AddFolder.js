@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NotefulContext from '../NotefulContext';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import ValidateAddFolder from './ValidateAddFolder';
 import './AddFolder.css'
 
@@ -18,17 +18,16 @@ export default class AddFolder extends Component {
         };
     }
 
-    handleSubmit = folderName => {
+    handleSubmit = () => {
         const folderError = this.validateFolderName();
-        console.log(folderError)
-        
         if (folderError !==''){
             this.setState({
                 folderErr: folderError
             })
-            console.log(this.state)
             return
         }
+
+        const folderName = this.state.folderName.value;
 
         fetch(`http://localhost:9090/folders`, {
           method: 'POST',
@@ -75,12 +74,16 @@ export default class AddFolder extends Component {
         if(folderName.length === 0){
             return '**You must enter a folder name.'
         };
-        for(let i=0;i<folders.length;i++){
-            if(folders[i].name.toLowerCase() === folderName.toLowerCase() ){
-               return '**You must choose another folder name as this name already exists.'
-            }
-        };
+        if(folderName.length > 0){
+            for(let i=0;i<folders.length;i++){
+                if(folders[i].name.toLowerCase() === folderName.toLowerCase() ){
+                    return '**You must choose another folder name as this name already exists.'
+                }
+            }; 
+            return ''   
+        }
     }
+    
     render(){
         
         return(
@@ -93,9 +96,9 @@ export default class AddFolder extends Component {
                     className='folder-form'
                     onSubmit={e => {
                         e.preventDefault();
-                        this.handleSubmit(this.state.folderName.value)}}
+                        this.handleSubmit()}}
                    >
-                    <label htmlFor='folderName'>
+                    <label htmlFor='folderName'  className="add-folder-label">
                         New Folder Name:
                         {' '}
                     </label>
@@ -119,13 +122,14 @@ export default class AddFolder extends Component {
                             Submit
                         </button>    
                     </div>
-                    
                 </form>    
             </div> 
         )
     }
 }
 
-// AddFolder.propTypes = {
-// check for history and push
-// }
+AddFolder.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired
+    }).isRequired,
+}

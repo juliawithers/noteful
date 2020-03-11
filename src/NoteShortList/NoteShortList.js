@@ -1,9 +1,12 @@
 import React,{ Component } from 'react'
 import { Link } from 'react-router-dom'
 import './NoteShortList.css'
+import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import NoteHeader from '../NoteHeader/NoteHeader'
 import NotefulContext from '../NotefulContext'
 import { generateFolderNotes} from '../helpful-functions'
+import PropTypes from 'prop-types'
 
 export default class NoteShortList extends Component {
     static contextType = NotefulContext;
@@ -15,7 +18,7 @@ export default class NoteShortList extends Component {
 
     render(){
         const folderId = this.props.match.params.folderId;
-        const notesList = generateFolderNotes(this.context.notes,folderId,this.props);
+        const notesList = generateFolderNotes(this.context.notes,folderId);
         return (
             <section>
                 <ul>
@@ -34,7 +37,7 @@ export default class NoteShortList extends Component {
                         <button 
                             className="add-note"
                             type="submit">
-                            Add Note
+                            <FontAwesomeIcon icon={faPlus}/> Note
                         </button>   
                     </Link>  
                 </div>
@@ -42,4 +45,12 @@ export default class NoteShortList extends Component {
         )     
     }
      
+}
+
+NoteShortList.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            folderId: PropTypes.string.isRequired
+        })
+    }).isRequired
 }

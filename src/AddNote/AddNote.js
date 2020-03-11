@@ -52,7 +52,6 @@ export default class AddNote extends Component {
                 contentErr: contentError,
                 folderErr: folderError
             })
-           console.log(this.state)
            return
         }
         const note = {
@@ -62,7 +61,6 @@ export default class AddNote extends Component {
             folderId: this.state.folderId.value,
             content: this.state.content.value,
         }
-        console.log(note)
         fetch(`http://localhost:9090/notes`, {
           method: 'POST',
           headers: {
@@ -122,16 +120,14 @@ export default class AddNote extends Component {
         if(noteName.length === 0){
             return '**You must enter a note name.'
         }
-        if(noteName.length > 1){
+        else if(noteName.length > 0){
             for(let i=0;i<notes.length;i++){
                 if(notes[i].name.toLowerCase() === noteName.toLowerCase() ){
-                return '**You must choose another note name as this name already exists.'
+                    return '**You must choose another note name as this name already exists.'
                 }
-            };   
-        }
-        else{
+            }; 
             return ''
-        } 
+        }
     }
     validateContent(){
         const description = this.state.content.value;
@@ -164,7 +160,7 @@ export default class AddNote extends Component {
                         e.preventDefault();
                         this.handleSubmit()}}
                    >
-                    <label htmlFor='noteName'>
+                    <label htmlFor='noteName' className="add-note-label">
                         Create a Name
                         {' '}
                     </label>
@@ -174,10 +170,9 @@ export default class AddNote extends Component {
                             id='noteName'
                             placeholder='Name of note'
                             onChange={e=>this.updateNoteName(e.target.value)}
-                            // required
                         />    
                     <ValidateAddNote message={this.state.noteNameErr}/>
-                    <label htmlFor='content'>
+                    <label htmlFor='content' className="add-note-label">
                         Enter a Description
                         {' '}
                     </label>
@@ -187,10 +182,9 @@ export default class AddNote extends Component {
                             id='content'
                             placeholder='Content of note'
                             onChange={e=>this.updateContent(e.target.value)}
-                            // required
                         />    
                     <ValidateAddNote message={this.state.contentErr}/>
-                    <label htmlFor='folder'>
+                    <label htmlFor='folder' className="add-note-label">
                         Select Folder to add to
                         {' '}
                     </label>
@@ -202,7 +196,6 @@ export default class AddNote extends Component {
                             onChange={e=>{
                                 this.updateFolder(e.target.value) 
                                 }}
-                            // required
                         >
                             <option value={null}>...</option>
                             <CreateOptions folderList={this.context.folders}/>
@@ -225,6 +218,7 @@ export default class AddNote extends Component {
 }
 
 AddNote.propTypes = {
-    // check for history and push
-    history: PropTypes.object
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired
+    }).isRequired,
 }

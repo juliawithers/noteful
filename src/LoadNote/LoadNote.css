@@ -1,40 +1,31 @@
 .article{
     display: flex;
-    justify-content: space-between;
 }
 
-.button-container-loaded>.delete-note{
-    width: 100px;
+.button-container-loaded>a>.delete-note{
+    width: 50px;
     height: 50px;
     font-size: 15px;
     line-height: 15px;
     border:none;
     border-radius: 5px;
-    margin-right: 15px;
+    margin-left: 15px;
     margin-top: 10px;
     color: #EDF5E1;
     background-color: #05386E;
 }
 
-article>.button-container-loaded>a{
-    width: 100px;
+/* article>.button-container-loaded>a{
+    width: 50px;
     height: 0px;
-}
+} */
 
 .content{
     margin-right: 15px;
 }
 
-@media screen and (min-width: 320px){
-    .button-container-loaded>.delete-note{
-        width: 100px;
-        font-size: 15px;
-    }
-}
-
 @media screen and (min-width: 650px){
-    .button-container-loaded>.delete-note{
-        width: 150px;
+    .button-container-loaded>a>.delete-note{
         font-size: 20px;
     }
 }
