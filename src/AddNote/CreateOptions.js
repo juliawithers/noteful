@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default class CreateOptions extends Component{
     render(){
         const folder = this.props.folderList.map(folder => {
-            return <option value={folder.id} id={folder.id} key={folder.id}>{folder.name}</option>
+            return <option value={folder.id} id={folder.id} key={folder.id} aria-selected={this.props.ariaSel}>{folder.name}</option>
         })
         return(
             folder

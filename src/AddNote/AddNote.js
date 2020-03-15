@@ -19,7 +19,8 @@ export default class AddNote extends Component {
             modified:'',
             folderId: {
                 value: '',
-                touched: false
+                touched: false,
+                ariaSelected: false
             },
             content: {
                 value: '',
@@ -109,7 +110,9 @@ export default class AddNote extends Component {
         this.setState({
             folderId: {
                 value: selected,
-                touched: true}
+                touched: true,
+                ariaSelected: true
+            }
         })
     }
    
@@ -160,53 +163,69 @@ export default class AddNote extends Component {
                         e.preventDefault();
                         this.handleSubmit()}}
                    >
-                    <label htmlFor='noteName' className="add-note-label">
+                    <label htmlFor="noteName" className="add-note-label">
                         Create a Name
                         {' '}
                     </label>
                         <input 
-                            type='text'
-                            name='noteName'
-                            id='noteName'
-                            placeholder='Name of note'
+                            type="text"
+                            name="noteName"
+                            id="noteName"
+                            role="textbox"
+                            placeholder="Name of note"
+                            aria-label="Create a name for your new note"
+                            aria-required="true"
+                            aria-describedby="noteConstraints"
                             onChange={e=>this.updateNoteName(e.target.value)}
                         />    
+                        <div id="noteConstraint">Please enter a unique note name. It cannot be empty or match an existing note name.</div>
                     <ValidateAddNote message={this.state.noteNameErr}/>
-                    <label htmlFor='content' className="add-note-label">
+                    <label htmlFor="content" className="add-note-label">
                         Enter a Description
                         {' '}
                     </label>
                         <textarea 
-                            type='text'
-                            name='content'
-                            id='content'
-                            placeholder='Content of note'
+                            type="text"
+                            name="content"
+                            id="content"
+                            role="textbox"
+                            placeholder="Content of note"
+                            aria-label="Please enter context for your new note."
+                            aria-required="true"
                             onChange={e=>this.updateContent(e.target.value)}
                         />    
                     <ValidateAddNote message={this.state.contentErr}/>
-                    <label htmlFor='folder' className="add-note-label">
+                    <label htmlFor="folder" className="add-note-label">
                         Select Folder to add to
                         {' '}
                     </label>
                         <select
-                            type='text'
-                            name='folder'
-                            id='folder'
-                            placeholder='Example Note Title'
+                            type="text"
+                            name="folder"
+                            id="folder"
+                            placeholder="Example Note Title"
+                            aria-label="Select a folder for your new note."
+                            aria-required="true"
                             onChange={e=>{
                                 this.updateFolder(e.target.value) 
                                 }}
                         >
                             <option value={null}>...</option>
-                            <CreateOptions folderList={this.context.folders}/>
+                            <CreateOptions 
+                                folderList={this.context.folders} 
+                                ariaSel={this.state.folderId.ariaSelected}/>
                         </select>    
                     <ValidateAddNote message={this.state.folderErr}/>
                     <div className="button-container-add-note">
-                        <button onClick={this.handleCancelNote}>
+                        <button 
+                            aria-label="cancel"
+                            onClick={this.handleCancelNote}>
                             Cancel
                         </button>
-                        <button type='submit'
-                            className='submit-add-folder'
+                        <button 
+                            type="submit"
+                            aria-label="submit"
+                            className="submit-add-folder"
                             >
                             Submit
                         </button>

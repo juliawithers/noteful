@@ -17,7 +17,8 @@ export default class LoadNote extends Component{
           params: {}
         }
       }
-
+    
+      
     deleteNoteRequest =e =>{
         e.preventDefault();
         const noteId = this.props.match.params.itemId
@@ -44,18 +45,19 @@ export default class LoadNote extends Component{
 
     render(){
         const itemId = this.props.match.params.itemId;
-        const note = findNote(this.context.notes,itemId,this.props)
+        const note = findNote(this.context.notes,itemId)
         return(
             <div className="loaded-note">
                 <article id={note.id} className="article">
                     <div>
-                        <h2>{note.name}</h2>
+                        <h2 role="title">{note.name}</h2>
                             <p>Date modified: {new Date(note.modified).toDateString()}</p>    
                     </div>
                     <div className="button-container-loaded">
                         <Link to={'/'}>
                         <button 
                             type="button" className="delete-note"
+                            aria-label="delete-note"
                             onClick={this.deleteNoteRequest}
                             >
                             <FontAwesomeIcon icon={faTrashAlt}/>
@@ -63,11 +65,10 @@ export default class LoadNote extends Component{
                         </Link>      
                     </div>
                 </article>
-                <article className="content">
+                <article className="content" role="main">
                     {note.content}
                 </article>
             </div>
-            
         )
     }
 }

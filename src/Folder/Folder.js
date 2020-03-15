@@ -24,13 +24,13 @@ export default class Folder extends Component {
                 </article> )}
             <div className="button-container-nav">
                 <Link to={'/add-folder'}>
-                    <button className="add-folder">
+                    <button 
+                        aria-label="add-folder"
+                        className="add-folder">
                         <FontAwesomeIcon icon={faPlus}/> Folder   
                     </button>    
                 </Link>
-            </div>
-            
-                                
+            </div>           
         </div>
     )  
     }

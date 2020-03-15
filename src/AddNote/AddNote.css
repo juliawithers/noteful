@@ -31,6 +31,13 @@ input,select{
     padding: 5px;
 }
 
+#noteConstraint{
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
 .button-container-add-note{
     display: flex;
     justify-content: space-around;

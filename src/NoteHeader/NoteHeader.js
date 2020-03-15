@@ -14,7 +14,6 @@ export default class NoteHeader extends Component {
     deleteNoteRequest = e =>{
         e.preventDefault();
         const noteId = this.props.id;
-        console.log('deleteNoteRequest ran')
         fetch(`http://localhost:9090/notes/${noteId}`, {
           method: 'DELETE',
           headers: {
@@ -46,6 +45,7 @@ export default class NoteHeader extends Component {
                 <div className="button-container-header">
                     <button 
                         type="button" className="delete-note"
+                        aria-label="delete-note"
                         onClick={this.deleteNoteRequest}
                         >
                         <FontAwesomeIcon icon={faTrashAlt}/>

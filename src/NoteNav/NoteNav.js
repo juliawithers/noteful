@@ -20,6 +20,7 @@ export default class NoteNav extends Component{
     const itemId = this.props.match.params.itemId;
     const note = findNote(notes, itemId);
     const folder = findFolder(folders, note.folderId);
+
     return (
     <div className="nav-container-note">
       <div className="button-container-back">
@@ -28,6 +29,7 @@ export default class NoteNav extends Component{
           role='link'
           onClick={() => this.props.history.goBack()}
           className='back-button'
+          aria-label="go-back"
         >
           Back
         </button>  

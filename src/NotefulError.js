@@ -15,7 +15,7 @@ export default class NotefulError extends Component {
     render() {
         if (this.state.hasError) {      
           return (
-            <h2>Could not display this currency.</h2>
+            <h2>Could not display this page.</h2>
           );
         }
         return this.props.children;

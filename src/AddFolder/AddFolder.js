@@ -102,21 +102,27 @@ export default class AddFolder extends Component {
                         New Folder Name:
                         {' '}
                     </label>
-                    <div className="input-container">
-                        <input 
-                            type='text'
-                            name='folderName'
-                            id='folderName'
-                            placeholder='Example Folder Title'
-                            onChange={e=>this.updateFolderInput(e.target.value)}
-                        />    
-                    </div>
+                    <input 
+                        type='text'
+                        name='folderName'
+                        id='folderName'
+                        placeholder='Example Folder Title'
+                        aria-label='Create a name for your new folder.'
+                        aria-required='true'
+                        aria-describedby='folderConstraints'
+                        onChange={e=>this.updateFolderInput(e.target.value)}
+                    />    
+                    <div id='folderConstraints'>Please enter a unique folder name. It cannot be empty or match an existing folder name.</div>
                     <ValidateAddFolder message={this.state.folderErr}/>
                     <div className="button-container-add-folder">
-                        <button onClick={this.handleCancelFolder}>
+                        <button
+                            aria-label="cancel" 
+                            onClick={this.handleCancelFolder}>
                             Cancel
                         </button>
-                        <button type='submit'
+                        <button 
+                            type='submit'
+                            aria-label="submit"
                             className='submit-add-folder'
                             >
                             Submit

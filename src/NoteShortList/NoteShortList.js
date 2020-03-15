@@ -36,6 +36,7 @@ export default class NoteShortList extends Component {
                     <Link to={'/add-note'}>
                         <button 
                             className="add-note"
+                            aria-label="submit"
                             type="submit">
                             <FontAwesomeIcon icon={faPlus}/> Note
                         </button>   

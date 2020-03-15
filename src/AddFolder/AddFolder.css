@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin: 10px;
 }
 
 .add-folder-label{
@@ -14,13 +15,7 @@
     margin-top: 20px;
 }
 
-.input-container{
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-.input-container>input{
+input{
     width: 200px;
     padding: 5px;
     text-align: center;
@@ -28,8 +23,15 @@
     border-radius: 3px;
     border-style: none;
     font-size: 15px;
+    margin-bottom: 10px;
 }
-
+#folderConstraints{
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
 .button-container-add-folder{
     display: flex;
