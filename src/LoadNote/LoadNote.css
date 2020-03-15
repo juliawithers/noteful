@@ -14,11 +14,9 @@
     color: #EDF5E1;
     background-color: #05386E;
 }
-
-/* article>.button-container-loaded>a{
-    width: 50px;
-    height: 0px;
-} */
+.button-container-loaded>a{
+    box-shadow: none;
+}
 
 .content{
     margin-right: 15px;

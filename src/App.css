@@ -73,8 +73,10 @@ h2{
   font-size: 110%;
 }
 
-
-
+button:focus,a:focus{
+  outline: none;
+  box-shadow: 0 0 0 10px rgba(21, 156, 228, 0.4);
+}
 @media screen and (min-width: 320px){
     h2{
         font-size: 150%;

@@ -16,7 +16,7 @@
 }
 .foldernav-link{
     text-decoration: none;
-    /* text-align: right; */
+    /* box-shadow: inset 0 0 0 10px rgba(21, 156, 228, 0.4); */
 }
 div>article>.title>{
     font-size: 20%;
@@ -26,6 +26,7 @@ div>article>.title>{
     display:flex;
     justify-content: flex-end;
 }
+
 .button-container-nav>a>.add-folder{
     border: none;
     border-radius: 5px;
@@ -39,12 +40,18 @@ div>article>.title>{
     margin-right: 15px;
 }
 .foldernav-link.active{
-    /* background-color: #5CDB95; */
     background-color: #8ee4af; 
     padding-left: 7px;
 }
+.foldernav-link:focus{
+    box-shadow: inset 0 0 0 10px rgba(21, 156, 228, 0.4);
+    margin: 3px;
+    padding-left: 3px;
+}
 
-
+.button-container-nav>a{
+    box-shadow: none;
+}
 @media screen and (min-width: 320px){
     .button-container-nav>a>.add-folder{
         width: 100px;
