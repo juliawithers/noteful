@@ -19,6 +19,7 @@ export default class App extends Component {
 
   componentDidMount() {
     // Fetch Folders
+    console.log('component did mount ran')
     fetch('http://localhost:9090/folders', {
       method: 'GET',
       headers: {

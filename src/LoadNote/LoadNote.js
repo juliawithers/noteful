@@ -43,13 +43,23 @@ export default class LoadNote extends Component{
         })
     }
 
+    verifyNotEmpty=noteGet=>{
+        if (!noteGet){
+            return null 
+        }
+        else{
+            return noteGet
+        }
+    }
     render(){
         const itemId = this.props.match.params.itemId
         console.log(this.props)
         console.log(itemId)
         console.log(this.context)
 
-        const note = findNote(this.context.notes,itemId)
+        const noteGet = findNote(this.context.notes,itemId)
+        const note = this.verifyNotEmpty(noteGet)    
+        
         return(
             <div className="loaded-note">
                 <article id={note.id} className="article">
