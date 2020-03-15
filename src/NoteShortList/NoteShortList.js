@@ -18,7 +18,6 @@ export default class NoteShortList extends Component {
 
     render(){
         const folderId = this.props.match.params.folderId;
-        console.log(this.context)
         const notesList = generateFolderNotes(this.context.notes,folderId);
         return (
             <section>
@@ -45,8 +44,7 @@ export default class NoteShortList extends Component {
                 </div>
             </section>
         )     
-    }
-     
+    }   
 }
 
 NoteShortList.propTypes = {

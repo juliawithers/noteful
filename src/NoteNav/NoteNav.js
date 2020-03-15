@@ -15,23 +15,15 @@ export default class NoteNav extends Component{
   }
   static contextType = NotefulContext;
 
-  verifyNotEmpty=get=>{
-    if (!get){
-        return null 
-    }
-    else{
-        return get
-    };
-}
-
   render(){
     const {folders,notes} = this.context;
     console.log(this.context)
     const itemId = this.props.match.params.itemId;
-    const noteGet = findNote(notes, itemId);
-    const note = this.verifyNotEmpty(noteGet)
-    const folderGet = findFolder(folders, note.folderId);
-    const folder = this.verifyNotEmpty(folderGet)
+    const note = findNote(notes, itemId);
+    if (!note){
+      return null
+    }
+    const folder = findFolder(folders, note.folderId);
     return (
     <div className="nav-container-note">
       <div className="button-container-back">

@@ -43,28 +43,17 @@ export default class LoadNote extends Component{
         })
     }
 
-    verifyNotEmpty=noteGet=>{
-        if (!noteGet){
-            return null 
-        }
-        else{
-            return noteGet
-        }
-    }
     render(){
         const itemId = this.props.match.params.itemId
-        console.log(this.props)
-        console.log(itemId)
-        console.log(this.context)
-
-        const noteGet = findNote(this.context.notes,itemId)
-        const note = this.verifyNotEmpty(noteGet)    
-        
+        const note = findNote(this.context.notes,itemId)
+        if (!note){
+            return null 
+        }        
         return(
             <div className="loaded-note">
                 <article id={note.id} className="article">
                     <div>
-                        <h2 role="title">{note.name}</h2>
+                        <h2>{note.name}</h2>
                             <p>Date modified: {new Date(note.modified).toDateString()}</p>    
                     </div>
                     <div className="button-container-loaded">
