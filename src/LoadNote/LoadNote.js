@@ -18,7 +18,7 @@ export default class LoadNote extends Component{
         }
       }
     
-      
+
     deleteNoteRequest =e =>{
         e.preventDefault();
         const noteId = this.props.match.params.itemId
@@ -44,7 +44,11 @@ export default class LoadNote extends Component{
     }
 
     render(){
-        const itemId = this.props.match.params.itemId;
+        const itemId = this.props.match.params.itemId
+        console.log(this.props)
+        console.log(itemId)
+        console.log(this.context)
+
         const note = findNote(this.context.notes,itemId)
         return(
             <div className="loaded-note">

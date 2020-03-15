@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom'
+import './App.css';
+import NotefulContext from './NotefulContext'
 import Folder from './Folder/Folder'
 import NoteNav from './NoteNav/NoteNav'
 import NoteShortList from './NoteShortList/NoteShortList'
 import LoadNote from './LoadNote/LoadNote'
-import './App.css';
-import NotefulContext from './NotefulContext'
 import AddFolder from './AddFolder/AddFolder'
 import AddNote from './AddNote/AddNote'
 import NotefulError from './NotefulError'
+
 export default class App extends Component {
   state = {
     folders: [],
@@ -96,7 +97,7 @@ export default class App extends Component {
         component={LoadNote}
       /> 
       <Route exact path="/add-folder" component={AddFolder}/>
-      <Route path="/add-note" component={AddNote}/>
+      <Route exact path="/add-note" component={AddNote}/>
       </>
     )
   }
@@ -107,7 +108,6 @@ export default class App extends Component {
       notes: this.state.notes,
       deleteNote: this.deleteNote
     }
-    console.log(contextValue)
     return (
         <NotefulError>
           <NotefulContext.Provider value={contextValue}>
