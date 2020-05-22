@@ -9,6 +9,7 @@ import LoadNote from './LoadNote/LoadNote'
 import AddFolder from './AddFolder/AddFolder'
 import AddNote from './AddNote/AddNote'
 import NotefulError from './NotefulError'
+import config from './config'
 
 export default class App extends Component {
   state = {
@@ -20,10 +21,10 @@ export default class App extends Component {
   componentDidMount() {
     // Fetch Folders
     console.log('component did mount ran')
-    fetch('http://localhost:9090/folders', {
+    fetch(config.API_FOLDERS_ENDPOINT, {
       method: 'GET',
       headers: {
-        'content-type': 'application/json'
+        'Content-Type': 'application/json'
       }
     })
     .then(res => {
@@ -38,10 +39,10 @@ export default class App extends Component {
     .catch(error => this.setState({ error }))
 
     // Fetch Notes
-    fetch('http://localhost:9090/notes', {
+    fetch(config.API_NOTES_ENDPOINT, {
       method: 'GET',
       headers: {
-        'content-type': 'application/json'
+        'Content-Type': 'application/json'
       }
     })
       .then(res => {

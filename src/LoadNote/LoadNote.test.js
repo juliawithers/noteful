@@ -11,7 +11,7 @@ describe(`LoadNote component`, () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <BrowserRouter>
-            <LoadNote />
+                <LoadNote />
             </BrowserRouter>,
             div
         );

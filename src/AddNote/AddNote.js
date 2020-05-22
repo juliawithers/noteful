@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import ValidateAddNote from './ValidateAddNote';
 import CreateOptions from './CreateOptions'
 import './AddNote.css'
+import config from './config'
 
 export default class AddNote extends Component {
     static contextType = NotefulContext;
@@ -56,16 +57,15 @@ export default class AddNote extends Component {
            return
         }
         const note = {
-            id: this.state.id,
             name: this.state.name.value,
             modified: this.state.modified,
             folderId: this.state.folderId.value,
             content: this.state.content.value,
         }
-        fetch(`http://localhost:9090/notes`, {
+        fetch(config.API_NOTES_ENDPOINT, {
           method: 'POST',
           headers: {
-            'content-type': 'application/json'
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify(note)
         })

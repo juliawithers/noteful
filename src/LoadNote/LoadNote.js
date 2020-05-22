@@ -22,10 +22,10 @@ export default class LoadNote extends Component{
     deleteNoteRequest =e =>{
         e.preventDefault();
         const noteId = this.props.match.params.itemId
-        fetch(`http://localhost:9090/notes/${noteId}`, {
+        fetch(`http://localhost:8000/notes/${noteId}`, {
           method: 'DELETE',
           headers: {
-            'content-type': 'application/json'
+            'Content-Type': 'application/json'
           },
         })
         .then(res => {

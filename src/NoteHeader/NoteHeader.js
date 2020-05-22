@@ -14,10 +14,10 @@ export default class NoteHeader extends Component {
     deleteNoteRequest = e =>{
         e.preventDefault();
         const noteId = this.props.id;
-        fetch(`http://localhost:9090/notes/${noteId}`, {
+        fetch(config.API_NOTEID_ENDPOINT+'/'+noteId, {
           method: 'DELETE',
           headers: {
-            'content-type': 'application/json'
+            'Content-Type': 'application/json'
           },
         })
         .then(res => {
