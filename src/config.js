@@ -5,7 +5,6 @@ export default {
 
     API_FOLDERS_ENDPOINT: `https://git.heroku.com/fierce-dawn-33726.git/api/noteful/folders`,
     API_NOTES_ENDPOINT: `https://git.heroku.com/fierce-dawn-33726.git/api/noteful/notes`,
-    API_NOTEID_ENDPOINT: `https://git.heroku.com/fierce-dawn-33726.git/api/noteful/notes/:noteId`
-    // `https://fierce-dawn-33726.herokuapp.com/`
-    // https://git.heroku.com/fierce-dawn-33726.git
+    API_NOTEID_ENDPOINT: `https://git.heroku.com/fierce-dawn-33726.git/api/noteful/notes`
+
   }
