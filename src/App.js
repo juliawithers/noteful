@@ -20,7 +20,6 @@ export default class App extends Component {
 
   componentDidMount() {
     // Fetch Folders
-    console.log('component did mount ran')
     fetch(config.API_FOLDERS_ENDPOINT, {
       method: 'GET',
       headers: {
@@ -52,7 +51,6 @@ export default class App extends Component {
         return res.json()
       })
       .then(notes => {
-        console.log(notes)
         this.setState({
         notes
       })})

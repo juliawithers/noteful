@@ -45,7 +45,6 @@ export default class AddFolder extends Component {
             return res.json();
         })
         .then( respJson => {
-            console.log(respJson)
             this.context.folders.push(respJson)
             this.props.history.push(`/folder/${folderName}`)
         })

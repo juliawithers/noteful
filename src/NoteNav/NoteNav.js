@@ -17,7 +17,7 @@ export default class NoteNav extends Component{
 
   render(){
     const {folders,notes} = this.context;
-    console.log(this.context)
+
     const itemId = this.props.match.params.itemId;
     const note = findNote(notes, itemId);
     if (!note){

@@ -7,7 +7,6 @@ export default function ValidateAddNote(props) {
       <div className="error">{props.message}</div>
     );
   }
-  console.log(props.message)
   return <></>
 }
 

@@ -3,8 +3,9 @@ export default {
     // API_NOTES_ENDPOINT: `http://localhost:8000/api/noteful/notes`,
     // API_NOTEID_ENDPOINT: `http://localhost:8000/api/noteful/notes/:noteId`
 
-    API_FOLDERS_ENDPOINT: `https://fierce-dawn-33726.herokuapp.com/folders`,
-    API_NOTES_ENDPOINT: `https://fierce-dawn-33726.herokuapp.com/notes`,
-    API_NOTEID_ENDPOINT: `https://fierce-dawn-33726.herokuapp.com/notes/:noteId`
+    API_FOLDERS_ENDPOINT: `https://git.heroku.com/fierce-dawn-33726.git/folders`,
+    API_NOTES_ENDPOINT: `https://git.heroku.com/fierce-dawn-33726.git/notes`,
+    API_NOTEID_ENDPOINT: `https://git.heroku.com/fierce-dawn-33726.git/notes/:noteId`
     // `https://fierce-dawn-33726.herokuapp.com/`
+    // https://git.heroku.com/fierce-dawn-33726.git
   }
