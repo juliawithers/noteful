@@ -23,7 +23,7 @@ export default class NoteNav extends Component{
     if (!note){
       return null
     }
-    const folder = findFolder(folders, note.folderId);
+    const folder = findFolder(folders, note.folder_id);
     return (
     <div className="nav-container-note">
       <div className="button-container-back">

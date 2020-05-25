@@ -17,8 +17,10 @@ export default class NoteShortList extends Component {
     }
 
     render(){
-        const folderId = this.props.match.params.folderId;
-        const notesList = generateFolderNotes(this.context.notes,folderId);
+        const folder_id = this.props.match.params.folder_id;
+        const numFolder_id = Number(folder_id)
+        const notesList = generateFolderNotes(this.context.notes,numFolder_id);
+   
         return (
             <section>
                 <ul>
@@ -50,7 +52,7 @@ export default class NoteShortList extends Component {
 NoteShortList.propTypes = {
     match: PropTypes.shape({
         params: PropTypes.shape({
-            folderId: PropTypes.string.isRequired
+            folder_id: PropTypes.string
         })
     }).isRequired
 }

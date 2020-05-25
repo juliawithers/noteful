@@ -51,7 +51,9 @@ export default class App extends Component {
         }
         return res.json()
       })
-      .then(notes => {this.setState({
+      .then(notes => {
+        console.log(notes)
+        this.setState({
         notes
       })})
       .catch(error => this.setState({ error }))
@@ -67,7 +69,7 @@ export default class App extends Component {
   CreateNavRoutes(){
     return(
       <>
-      {['/','/folder/:folderId'].map(path=>(
+      {['/','/folder/:folder_id'].map(path=>(
             <Route 
           exact
           path={path}
@@ -86,7 +88,7 @@ export default class App extends Component {
   createNotesRoutes(){
     return(
       <>
-      {['/', '/folder/:folderId'].map(path=>(
+      {['/', '/folder/:folder_id'].map(path=>(
             <Route 
               exact
               path={path}

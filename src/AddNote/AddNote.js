@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import ValidateAddNote from './ValidateAddNote';
 import CreateOptions from './CreateOptions'
 import './AddNote.css'
-import config from './config'
+import config from '../config'
 
 export default class AddNote extends Component {
     static contextType = NotefulContext;
@@ -18,7 +18,7 @@ export default class AddNote extends Component {
                 touched: false
             },
             modified:'',
-            folderId: {
+            folder_id: {
                 value: '',
                 touched: false,
                 ariaSelected: false
@@ -59,7 +59,7 @@ export default class AddNote extends Component {
         const note = {
             name: this.state.name.value,
             modified: this.state.modified,
-            folderId: this.state.folderId.value,
+            folder_id: this.state.folder_id.value,
             content: this.state.content.value,
         }
         fetch(config.API_NOTES_ENDPOINT, {
@@ -77,7 +77,7 @@ export default class AddNote extends Component {
         })
         .then( respJson => {
             this.context.notes.push(respJson)
-            this.props.history.push(`/folder/${note.folderId}`)
+            this.props.history.push(`/folder/${note.folder_id}`)
         })
         .catch(error => {
             this.setState({
@@ -108,7 +108,7 @@ export default class AddNote extends Component {
     }
     updateFolder(selected){
         this.setState({
-            folderId: {
+            folder_id: {
                 value: selected,
                 touched: true,
                 ariaSelected: true
@@ -142,7 +142,7 @@ export default class AddNote extends Component {
         }
     }
     validateFolder(){
-        const folder = this.state.folderId.value;
+        const folder = this.state.folder_id.value;
         if (!folder){
             return '**You must select a folder'
         }
@@ -213,7 +213,7 @@ export default class AddNote extends Component {
                             <option value={null}>...</option>
                             <CreateOptions 
                                 folderList={this.context.folders} 
-                                ariaSel={this.state.folderId.ariaSelected}/>
+                                ariaSel={this.state.folder_id.ariaSelected}/>
                         </select>    
                     <ValidateAddNote message={this.state.folderErr}/>
                     <div className="button-container-add-note">

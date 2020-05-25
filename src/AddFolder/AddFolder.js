@@ -3,7 +3,7 @@ import NotefulContext from '../NotefulContext';
 import PropTypes from 'prop-types'
 import ValidateAddFolder from './ValidateAddFolder';
 import './AddFolder.css'
-import config from './config'
+import config from '../config'
 
 export default class AddFolder extends Component {
     static contextType = NotefulContext;
@@ -45,6 +45,7 @@ export default class AddFolder extends Component {
             return res.json();
         })
         .then( respJson => {
+            console.log(respJson)
             this.context.folders.push(respJson)
             this.props.history.push(`/folder/${folderName}`)
         })

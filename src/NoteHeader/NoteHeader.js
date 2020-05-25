@@ -5,7 +5,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import './NoteHeader.css'
 import NotefulContext from '../NotefulContext'
 import PropTypes from 'prop-types'
-
+import config from '../config'
 
 
 export default class NoteHeader extends Component {
@@ -57,7 +57,7 @@ export default class NoteHeader extends Component {
 }
 
 NoteHeader.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     modified: PropTypes.string.isRequired
 }
