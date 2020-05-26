@@ -4,7 +4,6 @@ import toJson from 'enzyme-to-json'
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 import AddNote from './AddNote'
-// import renderer from 'react-test-renderer'
 
 describe(`AddNote component`, () => {
     it('renders without crashing', () => {

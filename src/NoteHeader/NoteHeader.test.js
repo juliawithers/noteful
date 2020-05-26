@@ -4,7 +4,6 @@ import toJson from 'enzyme-to-json'
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 import NoteHeader from './NoteHeader'
-// import renderer from 'react-test-renderer'
 
 describe(`NoteHeader component`, () => {
     it('renders without crashing', () => {
